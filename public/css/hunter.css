@@ -1,0 +1,196 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    background-color: #797979;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: none;
+    padding: 20px;
+    min-width: 300px;
+    min-height: 200px;
+}
+
+.loadout, .tools, .consumables {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    margin: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.slot {
+    width: 150px;
+    height: 100px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.support {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    border: 2px dotted #000000;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #8f8f8f;
+}
+
+.download {
+padding: 20px;
+}
+
+.loadoutSelect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.loadoutOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 132, 255);
+    padding: 5px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    background-color: #000000;
+}
+
+a:hover {
+    color: rgb(66, 227, 255);
+}
+
+label {
+    align-items: center;
+    margin: 10px;
+    font-weight: bolder;
+}
+
+button {
+    text-align: center;
+    margin: 5px;
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4b4b4b;
+}
+
+input[type="number"] {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    font-weight: bold;
+}
+
+/* Remove arrows for input number on various browsers */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        min-width: auto;
+        min-height: auto;
+    }
+
+    .loadout, .tools, .consumables {
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        margin: 10px 0;
+        min-width: auto;
+        min-height: auto;
+    }
+
+    .slot {
+        width: 70px;
+        height: 90px;
+        font-size: small;
+    }
+
+    .consumableSelect, .toolsSelect {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .loadoutOptions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+    }
+
+    input[type="number"] {
+        align-items: center;
+        width: 100%;
+        height: 40px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+}
+
+/* WebKit-specific styles */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .slot {
+        -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        -webkit-transition: background-color 0.3s ease;
+    }
+}
+
+
