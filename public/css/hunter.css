@@ -5,6 +5,7 @@ body {
     padding: 0;
     align-items: center;
     background-color: #797979;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container {
@@ -16,6 +17,7 @@ body {
     padding: 20px;
     min-width: 300px;
     min-height: 200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .loadout, .tools, .consumables {
@@ -41,22 +43,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.support {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: sans-serif;
-    font-weight: bold;
-    border: 2px dotted #000000;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #8f8f8f;
-}
-
-.download {
-padding: 20px;
-}
-
 .loadoutSelect {
     display: flex;
     flex-direction: column;
@@ -69,6 +55,33 @@ padding: 20px;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+#rules {
+    font-weight: bold;
+    gap: 5px;
+    color: rgb(119, 0, 0);
+}
+
+.supportContent {
+display: flex;
+flex-direction: column;
+align-items: center;
+color: rgb(0, 0, 0);
+font-weight: bold;
+margin: 10px;
+}
+
+.support {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 a {
@@ -94,7 +107,7 @@ button {
     text-align: center;
     margin: 5px;
     background-color: #000000;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -119,6 +132,13 @@ input[type="number"] {
     font-weight: bold;
 }
 
+h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h4 {
+    justify-self: center;
+}
+
 /* Remove arrows for input number on various browsers */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -137,8 +157,8 @@ input[type="number"] {
         flex-direction: column;
         align-items: center;
         padding: 10px;
-        min-width: auto;
-        min-height: auto;
+        min-width:1vh;
+        min-height: 1vh;
     }
 
     .loadout, .tools, .consumables {
@@ -167,18 +187,19 @@ input[type="number"] {
     }
 
     button {
-        width: 100%;
+        width: 100%px;
         padding: 10px;
         margin: 5px 0;
     }
 
+    button.loadoutOptions {
+        width: 10%;
+    }
+
     input[type="number"] {
         align-items: center;
-        width: 100%;
+        width: 5%;
         height: 40px;
-    }
-    h1 {
-        font-size: 20px;
     }
 }
 

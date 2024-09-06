@@ -20,6 +20,11 @@ $mediumWeapons = readCSV('../storage/lists/medium_weapons.csv');
 $tools = readCSV('../storage/lists/tools.csv');
 $consumables = readCSV('../storage/lists/consumables.csv');
 $meleeWeapons = readCSV('../storage/lists/melee_weapons.csv');
+// Rule sets
+$easyRules = readCSV('../storage/rules/easy.csv');
+$mediumRules = readCSV('../storage/rules/medium.csv');
+$hardRules = readCSV('../storage/rules/hard.csv');
+$insaneRules = readCSV('../storage/rules/insane.csv');
 
 // Convert data to JSON format for JavaScript
 $bigWeaponsJSON = json_encode($bigWeapons);
@@ -28,18 +33,24 @@ $mediumWeaponsJSON = json_encode($mediumWeapons);
 $toolsJSON = json_encode($tools);
 $consumablesJSON = json_encode($consumables);
 $meleeWeaponsJSON = json_encode($meleeWeapons);
+
+$easyRulesJSON = json_encode($easyRules);
+$mediumRulesJSON = json_encode($mediumRules);
+$hardRulesJSON = json_encode($hardRules);
+$insaneRulesJSON = json_encode($insaneRules);
 ?>
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="<?=mb_internal_encoding()?>">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Hunt Showdown Loadout Randomizer</title>
 	<link rel="stylesheet" href="css/hunter.css">
 	<script src="js/hunter.js"></script>
 </head>
 <body>
-<h1>Hunt 1896 Loadout Randomizer</h1>
+<h2>Hunt 1896 Loadout Randomizer</h2>
 
 <div id="container" class="container">
 	<div class="loadoutSelect">
@@ -64,24 +75,36 @@ $meleeWeaponsJSON = json_encode($meleeWeapons);
 
 	<div class="loadoutOptions">
 		<div class="consumableSelect">
-			<label for="consumableCount">Select Number of Consumables (0-4):</label>
+			<label for="consumableCount">Consumables (0-4):</label>
 			<button onclick="changeConsumableValue(1)">^</button>
 			<input type="number" id="consumableCount" min="0" max="4" value="1" readonly>
 			<button onclick="changeConsumableValue(-1)">v</button>
 		</div>
 
 		<div class="toolsSelect">
-			<label for="toolsCount">Select Number of Extra tools (0-1):</label>
+			<label for="toolsCount">Extra tool (0-1):</label>
 			<button onclick="increaseValue()">^</button>
 			<input type="number" id="toolsCount" min="0" max="1" value="0" readonly>
 			<button onclick="decreaseValue()">v</button>
 		</div>
 	</div>
 
+	<h4>Choose rules:</h4>
+	<div class="ruleChoice">
+		<form class="checkboxes" id="difficultyForm">
+			<label><input type="radio" name="difficulty" value="easy" onchange="changeRules()">Easy</label>
+			<label><input type="radio" name="difficulty" value="medium" onchange="changeRules()">Mid</label>
+			<label><input type="radio" name="difficulty" value="hard" onchange="changeRules()">Hard</label>
+			<label><input type="radio" name="difficulty" value="insane" onchange="changeRules()">Insanity</label>
+		</form>
+	</div>
+	<div id="rules"></div>
+
 </div>
 
 <div class="support">
 	<button onclick="showSupport()">Support?</button>
+	<div class="supportContent"></div>
 </div>
 
 
@@ -94,6 +117,11 @@ $meleeWeaponsJSON = json_encode($meleeWeapons);
 	const tools = <?php echo $toolsJSON; ?>;
 	const consumables = <?php echo $consumablesJSON; ?>;
 	const meleeWeapons = <?php echo $meleeWeaponsJSON; ?>;
+
+	const easyRules = <?php echo $easyRulesJSON; ?>;
+	const mediumRules = <?php echo $mediumRulesJSON; ?>;
+	const hardRules = <?php echo $hardRulesJSON; ?>;
+	const insaneRules = <?php echo $insaneRulesJSON; ?>;
 </script>
 
 </body>

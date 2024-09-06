@@ -114,13 +114,68 @@
 		changeValue('consumableCount', offset, 0, 4);
 	}
 
+    function changeRules() {
+        const difficulties = document.getElementsByName('difficulty');
+        let difficulty = '';
+
+        for (let i = 0; i < difficulties.length; i++) {
+            if (difficulties[i].checked) {
+                difficulty = difficulties[i].value;
+                break;
+            }
+        }
+
+        const rulesDiv = document.getElementById('rules');
+
+        rulesDiv.textContent = '';
+
+        if (!difficulty) {
+            rulesDiv.style.display = 'none';
+            return;
+        }
+
+        let selectedRules = [];
+
+        if (difficulty === 'easy') {
+            selectedRules = easyRules;
+        } else if (difficulty === 'medium') {
+            selectedRules = mediumRules;
+        } else if (difficulty === 'hard') {
+            selectedRules = hardRules;
+        } else if (difficulty === 'insane') {
+            selectedRules = insaneRules;
+        }
+
+        // Display the rules only if there are any selected
+        if (selectedRules.length > 0) {
+            rulesDiv.style.display = 'block';
+            selectedRules.forEach(rule => {
+                const ruleElement = document.createElement('p');
+                ruleElement.textContent = rule.join(', ');
+                rulesDiv.appendChild(ruleElement);
+            });
+        } else {
+            rulesDiv.style.display = 'none';
+        }
+    }
+
+
+
 	let supportContent = false;
+
 	function showSupport() {
-		const contentDiv = document.getElementsByClassName('support')[0];
+		const contentDiv = document.getElementsByClassName('supportContent')[0];
 
 		if (supportContent) {
+			// Remove all the child elements (p and a elements)
+			while (contentDiv.firstChild) {
+				contentDiv.removeChild(contentDiv.firstChild);
+			}
+
+			contentDiv.style.display = 'none'; // Hide the div
+			supportContent = false; // Toggle the flag
 			return;
-		};
+		}
 
 		const p1 = document.createElement('p');
 		p1.textContent = 'If you wish to support this project:';
@@ -134,17 +189,17 @@
 		p2.textContent = 'Want to suggest changes or features?';
 
 		const link2 = document.createElement('a');
-		link2.href = 'https://www.reddit.com/user/Proxima-noodle/';
+		link2.href = 'https://github.com/Vargfor/Hunter-Randomizer';
 		link2.target = '_blank';
-		link2.textContent = 'Reddit ^^';
+		link2.textContent = 'GitHub';
 
 		contentDiv.appendChild(p1);
 		contentDiv.appendChild(link1);
 		contentDiv.appendChild(p2);
 		contentDiv.appendChild(link2);
 
-		// Make the div visible
 		contentDiv.style.display = 'flex';
 
 		supportContent = true;
 	}
+
