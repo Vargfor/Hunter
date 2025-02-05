@@ -160,6 +160,13 @@ input[type="number"] {
         min-width:1vh;
         min-height: 1vh;
     }
+    .loadoutContainer {
+        padding: 0px;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
 
     .loadout, .tools, .consumables {
         flex-direction: row;
@@ -168,11 +175,12 @@ input[type="number"] {
         margin: 10px 0;
         min-width: auto;
         min-height: auto;
+
     }
 
     .slot {
         width: 70px;
-        height: 90px;
+        height: 70px;
         font-size: small;
     }
 
@@ -200,6 +208,17 @@ input[type="number"] {
         align-items: center;
         width: 5%;
         height: 40px;
+    }
+
+    .ruleChoice, #rules {
+        font-size: 12px;
+    }
+    .checkboxes {
+        flex-direction: row;
+    }
+    label {
+        margin: 0px;
+        align-items: center;
     }
 }
 

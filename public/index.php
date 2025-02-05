@@ -93,7 +93,7 @@ $insaneRulesJSON = json_encode($insaneRules);
 	<h4>Choose rules:</h4>
 	<div class="ruleChoice">
 		<form class="checkboxes" id="difficultyForm">
-			<label><input type="radio" name="difficulty" value="noRules" onchange="changeRules()">No Rules</label>
+			<label><input type="radio" name="difficulty" value="noRules" onchange="changeRules()" checked="checked">Nothing</label>
 			<label><input type="radio" name="difficulty" value="easy" onchange="changeRules()">Easy</label>
 			<label><input type="radio" name="difficulty" value="medium" onchange="changeRules()">Mid</label>
 			<label><input type="radio" name="difficulty" value="hard" onchange="changeRules()">Hard</label>
