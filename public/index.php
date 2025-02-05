@@ -25,6 +25,7 @@ $easyRules = readCSV('../storage/rules/easy.csv');
 $mediumRules = readCSV('../storage/rules/medium.csv');
 $hardRules = readCSV('../storage/rules/hard.csv');
 $insaneRules = readCSV('../storage/rules/insane.csv');
+$noRules = null;
 
 // Convert data to JSON format for JavaScript
 $bigWeaponsJSON = json_encode($bigWeapons);
@@ -92,6 +93,7 @@ $insaneRulesJSON = json_encode($insaneRules);
 	<h4>Choose rules:</h4>
 	<div class="ruleChoice">
 		<form class="checkboxes" id="difficultyForm">
+			<label><input type="radio" name="difficulty" value="noRules" onchange="changeRules()">No Rules</label>
 			<label><input type="radio" name="difficulty" value="easy" onchange="changeRules()">Easy</label>
 			<label><input type="radio" name="difficulty" value="medium" onchange="changeRules()">Mid</label>
 			<label><input type="radio" name="difficulty" value="hard" onchange="changeRules()">Hard</label>
